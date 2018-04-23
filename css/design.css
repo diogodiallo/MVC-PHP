@@ -4,5 +4,7 @@ main { display: flex;  min-height: 100vh; flex: 1 1 auto; }
 
 .container { margin-top: 70px; }
 
+.leader { font-size: .6em; }
+
 
 footer {  display: flex; justify-content: center; }

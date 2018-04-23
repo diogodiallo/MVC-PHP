@@ -1,5 +1,4 @@
 <?php
-
     ob_start();
 
     $title = "S'inscrire";
@@ -11,13 +10,7 @@
         <div class="card-body form-group">
             <h4 class="card-title btn btn-primary">Je souhaite m'inscrire</h4>
             
-            <?php if(!empty($errors)): ?>
-                <div class="alert alert-danger">
-                    <?php foreach($errors as $error): ?>
-                        <?= $error; ?>
-                    <?php endforeach; ?>
-                </div>
-            <?php endif; ?>
+            <?php include("inc/errors_display.php"); ?>
 
             <form action="./register.php" method="POST" enctype="multipart/form-data">
                 <p>

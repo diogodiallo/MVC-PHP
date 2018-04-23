@@ -24,6 +24,11 @@
 
     if(isset($_POST["connection"]))
     {
+        if (empty($identifiant) && empty($password)) 
+        {
+            $errors[] .= "<p>Veuillez remplir tous les champs.</p>";
+        }
+
         if (!$user) 
         {
             $errors[] .= "<p>Vos identifiants/mot de passe sont incorrects.</p>";
