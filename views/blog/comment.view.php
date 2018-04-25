@@ -38,7 +38,7 @@
 
             <?php include("inc/errors_display.php"); ?>
 
-            <form action="comment.php?post_id=<?= $post_id; ?>" method="POST">
+            <form action="index.php?action=add_comment&amp;post_id=<?= $_GET["post_id"]; ?>" method="POST">
                 <p>
                     <label for="author" class="control-label">Votre nom</label>
                     <input type="text" name="author" id="author" 
@@ -63,5 +63,5 @@
 <?php 
     $content = ob_get_clean();
 
-    require("template.view.php");
+    require("./views/template.view.php");
 ?>
