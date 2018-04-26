@@ -14,7 +14,7 @@
 
             <?php include("inc/errors_display.php"); ?>
 
-            <form action="" method="POST">
+            <form action="index.php?action=modify_comment&amp;comment_id=<?= $_GET["comment_id"]; ?>" method="POST">
                 <p>
                     <label for="author" class="control-label">Votre nom</label>
                     <input type="text" name="author" id="author" 
@@ -39,5 +39,5 @@
 <?php 
     $content = ob_get_clean();
 
-    require("template.view.php");
+    require("views/template.view.php");
 ?>

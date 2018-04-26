@@ -23,15 +23,34 @@
         require("./views/blog/comment.view.php");
     }
 
+    function one_comment($id)
+    {
+        $comment = get_one_comment($_GET["comment_id"]);
+
+        require("./views/blog/update.view.php");
+    }
+
     function add_comment($id, $author, $message)
     {
         $insert = insert_comments($id, $author, $message);
 
         if($insert)
         {
-            header("Location:index.php?action=post&amp;post_id=". $id);
+            header("Location:index.php?action=post&post_id=". $id);
             exit();
         }else {
-            exit("Une erreur est survenue lors de l'ajout de votre commentaire");
+            throw new Exception("Une erreur est survenue lors de l'ajout de votre commentaire");
+        }
+    }
+
+    function modify_comment($id, $author, $message)
+    {
+        $update = update_comment($id, $author, $message);
+
+        if ($update !== false) {
+            header("Location:index.php?action=posts");
+            exit();
+        }else {
+            throw new Exception("Une erreur est survenue lors de la modification du commentaire.");
         }
     }

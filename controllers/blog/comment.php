@@ -2,4 +2,4 @@
 
     $post = one_post();
    
-    require("views/comment.view.php");
+    require("./views/blog/comment.view.php");

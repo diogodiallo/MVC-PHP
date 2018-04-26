@@ -38,11 +38,13 @@
 
     function get_one_comment($id)
     {
-        $db     = connect();
-        $req    = $db->prepare("SELECT comment_id, id_post, author, message, created_at FROM comments WHERE comment_id = :comment_id");
+        $db         = connect();
+        $req        = $db->prepare("SELECT comment_id, id_post, author, message, created_at 
+                                    FROM comments 
+                                    WHERE comment_id = :comment_id");
         $req->execute(["comment_id" => $id]);
 
-        $comment   = $req->fetch();
+        $comment    = $req->fetch();
 
         $req->closeCursor();
 

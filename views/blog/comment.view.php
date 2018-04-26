@@ -23,7 +23,11 @@
             </h4>
             <div class="card-blocks">
                 <?= $comment->message; ?>
-                <em>Voulez-vous <a href="update.php?comment_id=<?= $comment->comment_id; ?>">modifier cet article?</a></em>
+                <em>Voulez-vous 
+                    <a href="index.php?action=modify_comment&amp;comment_id=<?= $comment->comment_id; ?>">
+                        modifier cet article?
+                    </a>
+                </em>
             </div>
         </div>
     <?php endforeach; ?>
@@ -36,9 +40,9 @@
         </div>
         <div class="card-body form-group">
 
-            <?php include("inc/errors_display.php"); ?>
+            <?php include("./inc/errors_display.php"); ?>
 
-            <form action="index.php?action=add_comment&amp;post_id=<?= $_GET["post_id"]; ?>" method="POST">
+            <form action="index.php?action=add_comment&amp;post_id=<?= $post->post_id; ?>" method="POST">
                 <p>
                     <label for="author" class="control-label">Votre nom</label>
                     <input type="text" name="author" id="author" 
